@@ -19,9 +19,9 @@ jobs:
           wget -nv https://istiak.com/pdns-recursor-4.8.2.tar.bz2
           tar -xf pdns-recursor-4.8.2.tar.bz2
           cd pdns-recursor-4.8.2
-          DEBFULLNAME="Istiak Ferdous" dh_make -s -e hello@istiak.com -p pdns-recursor --createorig -y
+          #DEBFULLNAME="Istiak Ferdous" dh_make -s -e hello@istiak.com -p pdns-recursor --createorig -y
           #rm -rf debian
-          #cp -r /home/runner/work/deb-test/deb-test/debian .
+          cp -r /home/runner/work/deb-test/deb-test/debian .
   
       - name: Cache apt packages
         id: apt-cache

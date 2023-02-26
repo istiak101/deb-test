@@ -1,0 +1,16 @@
+Source: pdns-recursor
+Section: unknown
+Priority: optional
+Maintainer: Istiak Ferdous <hello@istiak.com>
+Build-Depends: debhelper-compat (= 13), autotools-dev, libboost-all-dev
+Standards-Version: 4.6.0
+Homepage: https://www.powerdns.com/recursor.html
+#Vcs-Browser: https://salsa.debian.org/debian/pdns-recursor
+#Vcs-Git: https://salsa.debian.org/debian/pdns-recursor.git
+Rules-Requires-Root: no
+
+Package: pdns-recursor
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: <insert up to 60 chars description>
+ <insert long description, indented with spaces>

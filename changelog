@@ -1,0 +1,5 @@
+pdns-recursor (4.8.2-1) UNRELEASED; urgency=medium
+
+  * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+
+ -- Istiak Ferdous <hello@istiak.com>  Sun, 26 Feb 2023 16:28:40 +0000

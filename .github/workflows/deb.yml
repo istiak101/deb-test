@@ -15,7 +15,7 @@ jobs:
       - name: Install build dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install dh-make devscripts equivs
+          sudo apt-get install dh-make devscripts equivs pbuilder
           wget -nv https://istiak.com/pdns-recursor-4.8.2.tar.bz2
           tar -xf pdns-recursor-4.8.2.tar.bz2
           cd pdns-recursor-4.8.2

@@ -38,7 +38,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with: 
             name: artifacts
-            path: pdns-recursor-4.8.2/pdns-recursor_4.8.2.orig.tar.xz
+            path: pdns-recursor_4.8.2.orig.tar.xz
     
       - name: Try building
         run: |

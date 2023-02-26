@@ -12,10 +12,24 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
+
       - name: Install build dependencies
         run: |
           sudo apt-get update
           sudo apt-get install dh-make devscripts equivs pbuilder
+          
+  
+      - name: Cache pbuilder root
+        id: cache-pbuilder
+        uses: actions/cache@v3
+        with:
+          path: /var/cache/pbuilder/jammy-amd64-base.tgz
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('/var/cache/pbuilder/jammy-amd64-base.tgz') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+
+      - name: Create pbuilder root and populate package
+        run: |
           sudo pbuilder --create --distribution jammy --architecture amd64 --basetgz /var/cache/pbuilder/jammy-amd64-base.tgz
           wget -nv https://istiak.com/pdns-recursor-4.8.2.tar.bz2
           tar -xf pdns-recursor-4.8.2.tar.bz2
@@ -25,15 +39,6 @@ jobs:
           # cp -r /home/runner/work/deb-test/deb-test/debian .
           sudo pbuilder --update
           pdebuild
-  
-      - name: Cache apt packages
-        id: apt-cache
-        uses: actions/cache@v3
-        with:
-          path: vendor
-          key: ${{ runner.os }}-deb-test
-          restore-keys: |
-            ${{ runner.os }}-deb-test
 
       - name: Upload artifacts for workflow
         uses: actions/upload-artifact@v3

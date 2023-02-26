@@ -1,2 +1,2 @@
 # deb-test
-deb build test
+Testing deb package build on github runners

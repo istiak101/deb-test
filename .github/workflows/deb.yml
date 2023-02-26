@@ -16,6 +16,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install dh-make devscripts equivs pbuilder
+          sudo pbuilder --create --distribution jammy --architecture amd64 --basetgz /var/cache/pbuilder/jammy-amd64-base.tgz
           wget -nv https://istiak.com/pdns-recursor-4.8.2.tar.bz2
           tar -xf pdns-recursor-4.8.2.tar.bz2
           cd pdns-recursor-4.8.2

@@ -21,8 +21,9 @@ jobs:
           pwd
           ls
           cd pdns-recursor-4.8.2
+          DEBFULLNAME="Istiak Ferdous" dh_make -s -e hello@istiak.com -p pdns-recursor --createorig -y
+          rm -rf debian
           cp -r /home/runner/work/deb-test/deb-test/debian .
-          # DEBFULLNAME="Istiak Ferdous" dh_make -s -e hello@istiak.com -p pdns-recursor --createorig -y
   
       - name: Cache apt packages
         id: apt-cache
@@ -37,7 +38,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with: 
             name: artifacts
-            path: pdns-recursor-4.8.2
+            path: pdns-recursor-4.8.2/pdns-recursor_4.8.2.orig.tar.bz2
     
       - name: Try building
         run: |

@@ -21,8 +21,8 @@ jobs:
           pwd
           ls
           cd pdns-recursor-4.8.2
-          # cp -r /home/runner/work/deb-test/deb-test/debian .
-          DEBFULLNAME="Istiak Ferdous" dh_make -s -e hello@istiak.com -p pdns-recursor --createorig -y
+          cp -r /home/runner/work/deb-test/deb-test/debian .
+          # DEBFULLNAME="Istiak Ferdous" dh_make -s -e hello@istiak.com -p pdns-recursor --createorig -y
   
       - name: Cache apt packages
         id: apt-cache

@@ -41,6 +41,7 @@ jobs:
       - name: Try building
         run: |
           cd pdns-recursor-4.8.2
+          mk-build-deps --install --root-cmd sudo --remove
           debuild
           ls
 

@@ -24,6 +24,8 @@ jobs:
           DEBFULLNAME="Istiak Ferdous" dh_make -s -e hello@istiak.com -p pdns-recursor --createorig -y
           rm -rf debian
           cp -r /home/runner/work/deb-test/deb-test/debian .
+          cd ..
+          ls
   
       - name: Cache apt packages
         id: apt-cache
